@@ -1,0 +1,7 @@
+body {
+    font-family: Roboto Slab, Cambria, serif;
+    text-align: justify;
+}
+.pagination__controls {
+	text-align: center;
+}
