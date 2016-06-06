@@ -40,6 +40,8 @@
 		createPaginationControls(pages);
 		showPage(0);
 
+		$('.pagination li').first().addClass('active');
+
 		// Navigate to the coresponding slide when clicking on a nav-control
 		$('.pagination li').click(function() {
 			var pageIndex = $(this).index();
