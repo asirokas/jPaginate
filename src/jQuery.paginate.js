@@ -42,7 +42,7 @@
 
 		// Navigate to the coresponding slide when clicking on a nav-control
 		$('.pagination li').click(function() {
-			var pageIndex = $(this).index() - 1;
+			var pageIndex = $(this).index();
 			// remove active class from all elements
 			$(this).parent().children().removeClass('active');
 			$(this).addClass('active');
