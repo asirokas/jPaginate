@@ -45,6 +45,8 @@ Option             | Type    |  Default   | Description
 `pagination_class` | string  | pagination | The class for the pagination element
 `items_per_page`   | int     |     5      | The number of items for each page
 `prev_next`        | boolean |    true    | Show the previous and next controls
+`prev_text`        | string  |    '«'     | Show the previous and next controls
+`next_text`        | string  |    '»'     | Show the previous and next controls
 
 An example with the default options:
 
@@ -52,6 +54,8 @@ An example with the default options:
 $( '.element' ).jpaginate( {
     pagination_class: "pagination",
     items_per_page  : 5,
-    prev_next       : true
+    prev_next       : true,
+    prev_text       : '«',
+    next_text       : '»'
   } );
 ```
