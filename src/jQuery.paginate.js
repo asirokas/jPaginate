@@ -14,7 +14,9 @@
 		var defaults = {
 			pagination_class: "pagination",
 			items_per_page: 5,
-			prev_next: true
+			prev_next: true,
+			prev_text: '&laquo;',
+			next_text: '&raquo;'
 		};
 
 		// Merge deafults into options
@@ -37,7 +39,7 @@
 		function createPaginationControls( pages ) {
 			// Add Previous button
 			if ( options.prev_next == true ) {
-				$( "." + options.pagination_class ).append( '<li class="prev"><a href="#">' + '&laquo;' + '</a></li>' );
+				$( "." + options.pagination_class ).append( '<li class="prev"><a href="#">' + options.prev_text + '</a></li>' );
 			}
 			// For each div (slide) add a link in span for controls
 			for ( var i = 0; i < pages; i++ ) {
@@ -46,7 +48,7 @@
 
 			// Add Next Button
 			if ( options.prev_next == true ) {
-				$( "." + options.pagination_class ).append( '<li class="next"><a href="#">' + '&raquo;' + '</a></li>' );
+				$( "." + options.pagination_class ).append( '<li class="next"><a href="#">' + options.next_text + '</a></li>' );
 			}
 		}
 
