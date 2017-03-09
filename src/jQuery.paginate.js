@@ -2,7 +2,7 @@
  *
  * @summary     jPaginate
  * @description Paginate an html elements
- * @version     2016.11.04
+ * @version     2017.03.09
  * Rrepository  https://github.com/asirokas/jPaginate
  *
  * @author      Athanasios Sirokas (www.asirokas.com)
@@ -37,18 +37,19 @@
 		);
 
 		function createPaginationControls( pages ) {
+
 			// Add Previous button
 			if ( options.prev_next == true ) {
-				$( "." + options.pagination_class ).append( '<li class="prev"><a href="#">' + options.prev_text + '</a></li>' );
+				obj.find( "." + options.pagination_class ).append( '<li class="prev"><a href="#">' + options.prev_text + '</a></li>' );
 			}
 			// For each div (slide) add a link in span for controls
 			for ( var i = 0; i < pages; i++ ) {
-				$( "." + options.pagination_class ).append( '<li><a href="#' + ( i + 1 ) + '">' + ( i + 1 ) + '</a></li>' );
+				obj.find( "." + options.pagination_class ).append( '<li><a href="#' + ( i + 1 ) + '">' + ( i + 1 ) + '</a></li>' );
 			};
 
 			// Add Next Button
 			if ( options.prev_next == true ) {
-				$( "." + options.pagination_class ).append( '<li class="next"><a href="#">' + options.next_text + '</a></li>' );
+				obj.find( "." + options.pagination_class ).append( '<li class="next"><a href="#">' + options.next_text + '</a></li>' );
 			}
 		}
 
@@ -61,10 +62,14 @@
 		createPaginationControls( pages );
 		showPage( 0 );
 
-		$( '.pagination li' ).not( ".prev,.next" ).first().addClass( 'active' );
+		obj.find( '.pagination li' ).not( ".prev,.next" ).first().addClass( 'active' );
 
 		// Navigate to the coresponding slide when clicking on a nav-control
-		$( '.pagination li' ).not( ".prev,.next" ).click( function() {
+		obj.find( '.pagination li' ).not( ".prev,.next" ).click( function() {
+
+			// Reset the obj element to match the current pagination element
+			obj = $(this).parent().parent().parent();
+
 			if ( options.prev_next == true ) {
 				var pageIndex = $( this ).index() - 1;
 			} else {
@@ -78,7 +83,11 @@
 		} );
 
 		// Navigate to the previous slide when clicking on the prev button
-		$( '.pagination li.prev' ).click( function() {
+		obj.find( '.pagination li.prev' ).click( function() {
+
+			// Reset the obj element to match the current pagination element
+			obj = $(this).parent().parent().parent();
+
 			pageIndex = $( this ).parent().find( 'li.active' ).index() - 2;
 			if ( pageIndex < 0 ) pageIndex = 0;
 
@@ -88,7 +97,11 @@
 		} );
 
 		// Navigate to the next slide when clicking on the next button
-		$( '.pagination li.next' ).click( function() {
+		obj.find( '.pagination li.next' ).click( function() {
+
+			// Reset the obj element to match the current pagination element
+			obj = $(this).parent().parent().parent();
+
 			pageIndex = $( this ).parent().find( 'li.active' ).index();
 			if ( pageIndex > pages - 1 ) pageIndex = pages - 1;
 

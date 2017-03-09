@@ -36,6 +36,20 @@ This is a jQuery plugin for paginating content in an html page. It's simple and 
   $('.element').jpaginate();
   ```
 
+### Multiple instances
+
+If you want to have more than one elements paginated in the same page, then give each one a unique id attribute and use that id as the selector. This way, you can set different options for each element.
+
+```javascript
+$('#element-1').jpaginate({
+    items_per_page  : 2,
+});
+
+$('#element-2').jpaginate({
+    items_per_page  : 3,
+});
+```
+
 ## Options
 
 The plugin can be called with the following options:
